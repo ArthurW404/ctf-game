@@ -2,4 +2,6 @@
 
 using TestingGame;
 
-TestTestGame.RunTestGame();
+// TestTestGame.RunTestGame();
+
+TestingGame.TestSubstitution.RunTestGame();
