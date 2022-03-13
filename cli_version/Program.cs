@@ -4,4 +4,4 @@ using TestingGame;
 
 // TestTestGame.RunTestGame();
 
-TestingGame.TestSubstitution.RunTestGame();
+TestingGame.TestNSAGame.RunTestGame();
