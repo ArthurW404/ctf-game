@@ -132,7 +132,6 @@ namespace Game
             {
                 if (user_mapping.ContainsKey(curr))
                 {
-
                     return accum + user_mapping[curr];
                 }
                 else
