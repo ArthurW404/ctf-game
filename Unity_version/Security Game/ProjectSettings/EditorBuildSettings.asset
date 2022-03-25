@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 2a6bd942e53451648a3424cfb00dd9c0
+  - enabled: 1
+    path: Assets/Scenes/NSAGame.unity
+    guid: cae600560460a274f9ddfa1086f9b4fc
   m_configObjects: {}
