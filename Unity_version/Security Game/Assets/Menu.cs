@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 
-    public Transform ActiveMenu;
+    private Transform _ActiveMenu;
 
     // Start is called before the first frame update
-    public Transform HomeMenu;
-    public Transform LevelsMenu;
+    private Transform _HomeMenu;
+    private Transform _LevelsMenu;
     public void StartNSAGame () 
     {
         SceneManager.LoadScene("NSAGame");
@@ -18,16 +18,16 @@ public class Menu : MonoBehaviour
 
     public void GotoSelectLevels () 
     {
-        ActiveMenu.gameObject.SetActive(false);
-        LevelsMenu.gameObject.SetActive(true);
-        ActiveMenu = LevelsMenu;
+        _ActiveMenu.gameObject.SetActive(false);
+        _LevelsMenu.gameObject.SetActive(true);
+        _ActiveMenu = _LevelsMenu;
     }
 
     public void GoBackHome()
     {
-        ActiveMenu.gameObject.SetActive(false);
-        HomeMenu.gameObject.SetActive(true);
-        ActiveMenu = HomeMenu;
+        _ActiveMenu.gameObject.SetActive(false);
+        _HomeMenu.gameObject.SetActive(true);
+        _ActiveMenu = _HomeMenu;
     }
 
     public void Quit()
@@ -38,12 +38,12 @@ public class Menu : MonoBehaviour
     void Start()
     {
         Debug.Log("Starting!");
-        HomeMenu = this.gameObject.transform.GetChild(1);
-        LevelsMenu= this.gameObject.transform.GetChild(2);
-        ActiveMenu = HomeMenu;
-        Debug.Log(HomeMenu);
-        Debug.Log(LevelsMenu);
-        // HomeMenu.gameObject.SetActive(true);
+        _HomeMenu = this.gameObject.transform.GetChild(1);
+        _LevelsMenu= this.gameObject.transform.GetChild(2);
+        _ActiveMenu = _HomeMenu;
+        Debug.Log(_HomeMenu);
+        Debug.Log(_LevelsMenu);
+        // _HomeMenu.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

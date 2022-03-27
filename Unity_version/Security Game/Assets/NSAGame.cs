@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 using System;
@@ -77,7 +78,6 @@ namespace Crypto
             foreach (char key in cipher.Keys)
             {
                 var value = cipher[key];
-                Debug.Log($"{key} : {value}");
             }
         }
     }
@@ -91,10 +91,11 @@ namespace Game
         private string _cipher_text;
         public string cipher_text
         {
-            get {
+            get
+            {
                 return _cipher_text;
             }
-            private set 
+            private set
             {
                 _cipher_text = value;
             }
@@ -126,13 +127,9 @@ namespace Game
 
             if (this.user_mapping.ContainsKey(key))
             {
-                Debug.Log($"{key}, {value}");
-
                 this.user_mapping[key] = value;
             }
 
-            Debug.Log($"quote =  {this.target_quote}");
-            Debug.Log($"user = {this.GetUserQuote()}");
             if (this.target_quote == this.GetUserQuote())
             {
                 return true;
@@ -165,24 +162,57 @@ public class NSAGame : MonoBehaviour
     public event EventHandler OnUpdate;
     public Game.NSAGameHandler nsagame;
     public Transform TextTransform;
-    
+
+    public void SetUserMapping(char key, char value)
+    {
+        bool result = nsagame.SetUserMapping(key, value);
+        OnUpdate?.Invoke(this, EventArgs.Empty);
+
+        if (result == true)
+        {
+            // Change to victory scene
+            Debug.Log("Victory");
+            SceneManager.LoadScene("Victory");
+            return;
+        }
+
+    }
+
     public string GetUserQuote()
     {
-        if (nsagame != null) {
+        if (nsagame != null)
+        {
             // Partition into 25 character pieces, then alternate between plain and cipher
             var chunksize = 20;
             var plaintext = nsagame.GetUserQuote();
-            var cipher = nsagame.cipher_text; 
-            var num_chunks = plaintext.Length % chunksize == 0 ?  plaintext.Length / chunksize : plaintext.Length / chunksize + 1;
-            var plaintextChunks = Enumerable.Range(0, num_chunks)
-                .Select(i => plaintext.Substring(i * chunksize, Math.Min(chunksize, plaintext.Length - i * chunksize))).ToArray();
-            var cipherChunks = Enumerable.Range(0, num_chunks)
-                .Select(i => cipher.Substring(i * chunksize, Math.Min(chunksize, cipher.Length  - i * chunksize))).ToArray();
+            var cipher = nsagame.cipher_text;
+
             var result_str = "";
-            for (var i = 0; i < plaintextChunks.Length; ++i) 
+            string[] plaintext_words = plaintext.Split(' ');
+            string[] cipher_words = cipher.Split(' ');
+
+            string plaintext_sentence = "";
+            string cipher_sentence = "";
+
+            // Assuming word is not more than 20 characters 
+            for (var i = 0; i < plaintext_words.Length; ++i)
             {
-                result_str += plaintextChunks[i] + "\n";
-                result_str += cipherChunks[i] + "\n";
+                if (plaintext_sentence.Length + plaintext_words[i].Length >= chunksize)
+                {
+                    // New line
+                    result_str += plaintext_sentence + "\n";
+                    result_str += cipher_sentence + "\n";
+                    plaintext_sentence = "";
+                    cipher_sentence = "";
+                }
+                plaintext_sentence += plaintext_words[i] + " ";
+                cipher_sentence += cipher_words[i] + " ";
+            }
+
+            if (plaintext.Length != 0)
+            {
+                result_str += plaintext_sentence + "\n";
+                result_str += cipher_sentence + "\n";
             }
             return result_str;
         }
@@ -195,44 +225,7 @@ public class NSAGame : MonoBehaviour
     void Start()
     {
         nsagame = new Game.NSAGameHandler();
-        Debug.Log(nsagame.GetUserQuote());
         OnUpdate?.Invoke(this, EventArgs.Empty);
-
-        // var test = this.transform.GetChild(0);
-        // // Debug.Log(test);
-        // TextTransform = test.GetChild(0);
-        // Debug.Log(TextTransform.gameObject);
-        // var text = nsagame.GetUserQuote();
-        // Debug.Log(nsagame);
-        // Debug.Log(text);
-        // Debug.Log(TextTransform.GetComponent<UnityEngine.UI.Text>().text);
-        // TextTransform.GetComponent<UnityEngine.UI.Text>().text = nsagame.GetUserQuote();
-        // while (true)
-        // {
-        //     nsagame.PrintUserQuote();
-        //     Console.Write("Enter a letter and what it's substitute letter is: ");
-        //     var input = Console.ReadLine();
-        //     if (input == null)
-        //     {
-        //         Console.WriteLine("\nDeath");
-        //         return;
-        //     }
-        //     string[] inputs = input.Split(' ');
-        //     if (inputs.Length != 2 || inputs[0].Length != 1 || inputs[1].Length != 1)
-        //     {
-        //         Console.WriteLine("\nExpected input: [letter] [letter]");
-        //         continue;
-        //     }
-
-        //     var key = inputs[0].ToUpper()[0];
-        //     var value = inputs[1].ToUpper()[0];
-        //     bool result = nsagame.SetUserMapping(key,  value);
-        //     if (result == true)
-        //     {
-        //         Console.WriteLine("Congrats! You got it!");
-        //         return;
-        //     }
-        // }
     }
 
     // Update is called once per frame

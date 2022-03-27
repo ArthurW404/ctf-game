@@ -18,7 +18,6 @@ public class NSAText : MonoBehaviour
 
     private void OnNSAGameUpdate(object sender, System.EventArgs e)
     {
-        Debug.Log("Test");
         m_MyText.SetText("<mspace=0.7em>" + nsagame?.GetUserQuote());
     }
 
