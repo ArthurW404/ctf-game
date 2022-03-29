@@ -16,6 +16,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("NSAGame");
     }
 
+   public void StartBirthdayAttack () 
+    {
+        SceneManager.LoadScene("BirthdayAttack");
+    }
+
     public void GotoSelectLevels () 
     {
         _ActiveMenu.gameObject.SetActive(false);
