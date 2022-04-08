@@ -21,6 +21,12 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("BirthdayAttack");
     }
 
+
+   public void StartHashCracking () 
+    {
+        SceneManager.LoadScene("HashCracking");
+    }
+
     public void GotoSelectLevels () 
     {
         _ActiveMenu.gameObject.SetActive(false);

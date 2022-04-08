@@ -4,7 +4,6 @@ using UnityEngine;
 using System;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 public class NSAInputs : MonoBehaviour
 {
     private static readonly string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

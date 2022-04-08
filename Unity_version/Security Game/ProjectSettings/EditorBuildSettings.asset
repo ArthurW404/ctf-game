@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/NSAGame.unity
     guid: cae600560460a274f9ddfa1086f9b4fc
   - enabled: 1
-    path: Assets/Scenes/Victory.unity
-    guid: fa316148339cb3145b6af12a9871b4a1
-  - enabled: 1
     path: Assets/Scenes/BirthdayAttack.unity
     guid: 8254ea7202d24b14682e7dbe86137f06
+  - enabled: 1
+    path: Assets/Scenes/HashCracking.unity
+    guid: d3486a124f8c54541b5d5e73d7b8dded
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: fa316148339cb3145b6af12a9871b4a1
   m_configObjects: {}
