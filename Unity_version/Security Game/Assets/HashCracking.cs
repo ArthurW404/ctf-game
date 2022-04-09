@@ -13,12 +13,12 @@ public class HashCracking : MonoBehaviour
     private TMP_InputField usernameField;
     private TMP_InputField passwordField;
     
-
+    private GameObject PauseMenuCanvas;
     public void onLogin()
     {
-
         if (passwordField.text == passwordPlainText)
         {
+            GameMaster.timeElapsed = (int) Time.timeSinceLevelLoad;
             SceneManager.LoadScene("Victory");
         }
     }
@@ -26,6 +26,10 @@ public class HashCracking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PauseMenuCanvas = GameObject.Find("PauseMenuCanvas");
+        PauseMenuCanvas.SetActive(false);
+        Debug.Log(PauseMenuCanvas);
+
         usernameField = this.transform.GetComponentsInChildren<TMP_InputField>()[0];
         passwordField = this.transform.GetComponentsInChildren<TMP_InputField>()[1];
         // Open file with all possible 
@@ -68,6 +72,9 @@ public class HashCracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenuCanvas.SetActive(!PauseMenuCanvas.activeSelf);
+        }
     }
 }

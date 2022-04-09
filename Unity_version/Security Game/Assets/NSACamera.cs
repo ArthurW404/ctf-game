@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class NSACamera : MonoBehaviour
 {
+    private bool finished_camera = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +21,9 @@ public class NSACamera : MonoBehaviour
         var y = this.transform.position.y;
         var z = this.transform.position.z;
         // target pos (-4, 5.6, -8.6)
-        if (z < -8.6f && y > 5.65f){
-            this.transform.position = new Vector3(x, y - delta * 2, z + delta * 8);
+        if (z < -8.6f && y > 5.65f)
+        {
+            this.transform.position = new Vector3(x, y - delta * 2, z + delta * 8); 
         }
     }
 }

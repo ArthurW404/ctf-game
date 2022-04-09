@@ -16,7 +16,8 @@ public class BirthdayAttackGame : MonoBehaviour
     private MD5 hash;
     private TMP_InputField usernameField;
     private TMP_InputField passwordField;
-    
+    private GameObject PauseMenuCanvas;
+
     public void onLogin()
     {
         byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(passwordField.text);
@@ -36,6 +37,8 @@ public class BirthdayAttackGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PauseMenuCanvas = GameObject.Find("PauseMenuCanvas");
+        PauseMenuCanvas.SetActive(false);
         targetHash = new System.Random().Next(16);
         Debug.Log(targetHash);
         hash = MD5.Create();
@@ -46,6 +49,9 @@ public class BirthdayAttackGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenuCanvas.SetActive(!PauseMenuCanvas.activeSelf);
+        }
     }
 }

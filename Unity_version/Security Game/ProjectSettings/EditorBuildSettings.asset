@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/HashCracking.unity
     guid: d3486a124f8c54541b5d5e73d7b8dded
   - enabled: 1
+    path: Assets/Scenes/Quiz.unity
+    guid: f3975227a95a75142b5f2079e8e312f5
+  - enabled: 1
     path: Assets/Scenes/Victory.unity
     guid: fa316148339cb3145b6af12a9871b4a1
   m_configObjects: {}

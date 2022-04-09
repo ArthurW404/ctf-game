@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Threading.Tasks;
 
 using System;
 using Crypto;
 using System.Linq;
+using System.Timers;
 
 static class Global
 {
@@ -162,6 +163,8 @@ public class NSAGame : MonoBehaviour
     public event EventHandler OnUpdate;
     public Game.NSAGameHandler nsagame;
     public Transform TextTransform;
+    private GameObject PauseMenuCanvas;
+    private GameObject GameCanvas;
 
     public void SetUserMapping(char key, char value)
     {
@@ -170,6 +173,7 @@ public class NSAGame : MonoBehaviour
 
         if (result == true)
         {
+            GameMaster.timeElapsed = ((int)Time.timeSinceLevelLoad);
             // Change to victory scene
             Debug.Log("Victory");
             SceneManager.LoadScene("Victory");
@@ -222,15 +226,27 @@ public class NSAGame : MonoBehaviour
     }
     // Start is called before the first frame update
 
-    void Start()
+
+    async void Start()
     {
+        PauseMenuCanvas = GameObject.Find("PauseMenuCanvas");
+        PauseMenuCanvas.SetActive(false);
+        GameCanvas = GameObject.Find("Game");
+        GameCanvas.SetActive(false);
         nsagame = new Game.NSAGameHandler();
         OnUpdate?.Invoke(this, EventArgs.Empty);
+
+        
+        await Task.Delay(1800);
+        GameCanvas.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenuCanvas.SetActive(!PauseMenuCanvas.activeSelf);
+        }
     }
 }

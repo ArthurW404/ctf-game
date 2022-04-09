@@ -27,6 +27,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("HashCracking");
     }
 
+    public void StartQuiz () 
+    {
+        SceneManager.LoadScene("Quiz");
+    }
+
     public void GotoSelectLevels () 
     {
         _ActiveMenu.gameObject.SetActive(false);
