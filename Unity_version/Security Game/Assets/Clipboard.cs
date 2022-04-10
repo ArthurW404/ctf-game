@@ -41,7 +41,6 @@ public class Clipboard : MonoBehaviour
                 //Select stage    
                 if (hit.transform.name == "Clipboard") {  
                     visible = !visible;
-                    Debug.Log(visible);
                 }  
             }  
         }

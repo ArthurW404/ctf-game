@@ -174,8 +174,8 @@ public class NSAGame : MonoBehaviour
         if (result == true)
         {
             GameMaster.timeElapsed = ((int)Time.timeSinceLevelLoad);
+            GameMaster.otherScores = new Dictionary<string, string>();
             // Change to victory scene
-            Debug.Log("Victory");
             SceneManager.LoadScene("Victory");
             return;
         }

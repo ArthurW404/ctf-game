@@ -53,12 +53,9 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Starting!");
         _HomeMenu = this.gameObject.transform.GetChild(1);
         _LevelsMenu= this.gameObject.transform.GetChild(2);
         _ActiveMenu = _HomeMenu;
-        Debug.Log(_HomeMenu);
-        Debug.Log(_LevelsMenu);
         // _HomeMenu.gameObject.SetActive(true);
     }
 

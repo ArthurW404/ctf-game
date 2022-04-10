@@ -839,8 +839,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3, y: -13.1}
-  m_SizeDelta: {x: 50, y: 15}
+  m_AnchoredPosition: {x: 15.3, y: -13.1}
+  m_SizeDelta: {x: 80, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &533757784
 MonoBehaviour:
@@ -1375,8 +1375,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3, y: 13.4}
-  m_SizeDelta: {x: 50, y: 15}
+  m_AnchoredPosition: {x: 15.5, y: 13.4}
+  m_SizeDelta: {x: 80, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1034057132
 MonoBehaviour:
@@ -1978,7 +1978,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Username: admin
+  m_text: 'The database containing login informations for the social media website
+    facebook2 was recently leaked, while unfortunately, the password was not stored
+    in plaintext, it does seem to be hashed  only once using MD5, which can possibly
+    be exploited still.
+
+
+    You are tasked with attempting to get access into the
+    admin account for this website. This is the login details found from the data
+    leak:
+
+
+
+    Username: admin
 
 '
   m_isRightToLeft: 0
@@ -2625,6 +2637,18 @@ PrefabInstance:
     - target: {fileID: 897961190468516987, guid: 861e2c1367e9c5340ad637d509c56748, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935724228041524407, guid: 861e2c1367e9c5340ad637d509c56748, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13778186
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935724228041524407, guid: 861e2c1367e9c5340ad637d509c56748, type: 3}
+      propertyPath: m_Color.g
+      value: 0.16037738
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935724228041524407, guid: 861e2c1367e9c5340ad637d509c56748, type: 3}
+      propertyPath: m_Color.r
+      value: 0.13692597
       objectReference: {fileID: 0}
     - target: {fileID: 2222860739090504088, guid: 861e2c1367e9c5340ad637d509c56748, type: 3}
       propertyPath: m_Pivot.x

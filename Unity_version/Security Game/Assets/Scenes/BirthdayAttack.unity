@@ -2106,7 +2106,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+  m_text: "A certain rainforest website recently migrated to using a new standard
+    for their hashing algorithm for their passwords. However, it appears that the
+    hash function prioritised space efficiency since the cost of computer storage
+    is through the roof right now, and is therefore only using 4 bits sized hash.
+    \n\nYou know that the admin username for the site is:\nusername: admin\n\nPerhaps
+    you can try break into this site for some free stuff?\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -26,7 +26,6 @@ public class ClickableText : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Clicked");
             // Whatever you want it to do.
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

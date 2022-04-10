@@ -26,9 +26,10 @@ public class BirthdayAttackGame : MonoBehaviour
         // get last 4 byte
         // Get a 4 bit number
         var resultHash = hashBytes[0] & 0xF;
-        Debug.Log(resultHash);
         if (resultHash == targetHash)
         {
+            GameMaster.timeElapsed = ((int)Time.timeSinceLevelLoad);
+            GameMaster.otherScores = new Dictionary<string, string>();
             SceneManager.LoadScene("Victory");
         }
 

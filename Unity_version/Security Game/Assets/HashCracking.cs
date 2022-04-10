@@ -19,6 +19,8 @@ public class HashCracking : MonoBehaviour
         if (passwordField.text == passwordPlainText)
         {
             GameMaster.timeElapsed = (int) Time.timeSinceLevelLoad;
+            GameMaster.otherScores = new Dictionary<string, string>();
+
             SceneManager.LoadScene("Victory");
         }
     }
@@ -28,7 +30,6 @@ public class HashCracking : MonoBehaviour
     {
         PauseMenuCanvas = GameObject.Find("PauseMenuCanvas");
         PauseMenuCanvas.SetActive(false);
-        Debug.Log(PauseMenuCanvas);
 
         usernameField = this.transform.GetComponentsInChildren<TMP_InputField>()[0];
         passwordField = this.transform.GetComponentsInChildren<TMP_InputField>()[1];
@@ -59,7 +60,6 @@ public class HashCracking : MonoBehaviour
         hash = hash.Replace("-", string.Empty);
 
         Debug.Log(passwordPlainText);
-        Debug.Log(hash);
 
         // Set text on clipboard to hash password detail
         var ClipBoardText = GameObject.Find("ClipboardText");

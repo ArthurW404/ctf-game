@@ -30,12 +30,6 @@ public class QuizGame : MonoBehaviour
             "Information bias",
             "Availability heuristic"
         }),
-        new Question("Which cognitive bias is related to people being over-reliant on the first peice of information they hear", 0, new string[] {
-            "Anchoring bias",
-            "Confirmation bias",
-            "Information bias",
-            "Availability heuristic"
-        }),
         new Question("Which cognitive bias is related to people overestimating the importance of information that is available to them", 3, new string[] {
             "Anchoring bias",
             "Confirmation bias",
